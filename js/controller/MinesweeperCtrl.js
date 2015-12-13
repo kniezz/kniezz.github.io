@@ -6,6 +6,9 @@ Application.controller("MinesweeperCtrl", function($scope, $utilService){
 	$scope.bombCounter = 0;
 
 	$scope.doStart = function(){
+		if($scope.msconfig.bomb >= $scope.msconfig.width*$scope.msconfig.height){
+			alert("Too many Bomb! Bomb should be less than "+$scope.msconfig.width*$scope.msconfig.height);
+		}
 		angular.copy($scope.msconfig, $scope.msgame);
 		$scope.bombCounter = $scope.msgame.bomb;
 		$scope.mstable = [];
